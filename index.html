@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" data-framework="knockoutjs">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>P5-1: Neighborhood Map Project</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="map js-map"></div>
+
+        <form class="search" data-bind="submit: searchSubmit">
+            <input data-bind="value: searchQuery" class="search__input" placeholder="Filter favorite places">
+            <button class="search__button" type="submit"><span>Show</span></button>
+        </form>
+
+        <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
+    </body>
+</html>

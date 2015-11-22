@@ -1,0 +1,10 @@
+{
+  "name": "task6",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "knockout": "^3.4.0",
+    "requirejs": "^2.1.15",
+    "requirejs-plugins": "^1.0.2"
+  }
+}

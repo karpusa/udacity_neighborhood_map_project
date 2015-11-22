@@ -1,5 +1,11 @@
 ## Udacity Neighborhood Map Project
 
+### Instruction
+
+* Run cmd
+* $ npm install
+* Open index.html in browser
+
 ### Resources
 * [Foursquare API](https://developer.foursquare.com/start)
 * [MediaWikiAPI for Wikipedia](http://www.mediawiki.org/wiki/API:Main_page)
