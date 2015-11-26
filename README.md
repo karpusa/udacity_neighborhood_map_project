@@ -6,6 +6,13 @@
 * $ npm install
 * Open index.html in browser
 
+### Tools
+
+* Node.js
+* KnockoutJS
+* RequireJS
+* Google Map API
+
 ### Resources
 * [Foursquare API](https://developer.foursquare.com/start)
 * [MediaWikiAPI for Wikipedia](http://www.mediawiki.org/wiki/API:Main_page)

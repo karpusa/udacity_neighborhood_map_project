@@ -14,6 +14,17 @@
             <button class="search__button" type="submit"><span>Show</span></button>
         </form>
 
+        <div class="location">
+            <ul class="location__list" data-bind="foreach: { data: locations, as: 'location' }">
+                <a class="location__link" href="#" data-bind="click: $parent.setCurrentLocation">
+                <li class="location__item" data-bind="css: { 'is-hidden' : !visible(), 'is-active' : $parent.currentLocation() === location}, attr: {latLng : marker.position }">
+                    <h3 class="location__name" data-bind="text: name"></h3>
+                    <p class="location__address" data-bind="text: address"></p>
+                </li>
+                </a>
+            </ul>
+        </div>
+
         <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
     </body>
 </html>
