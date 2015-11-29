@@ -32,6 +32,7 @@ define([
                 center: new google.maps.LatLng(56.9715833, 24.1090803),
                 zoom: 11,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI : true,
             });
         };
 

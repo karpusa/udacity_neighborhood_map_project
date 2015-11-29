@@ -19,21 +19,27 @@ a:hover {
 
 .search {
     position: fixed;
-    top: 50px;
-    left: 30px;
+    top: 0;
+    left: 0;
     z-index: 9999;
+    width: 100%;
     height: 40px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .search__input {
+    width: 75%;
     padding: 5px 8px;
     border:1px solid #566963;
     border-right: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .search__button {
+    width: 25%;
     text-transform: uppercase;
     -moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
     -webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
@@ -52,9 +58,12 @@ a:hover {
     color:#ffffff;
     font-size:14px;
     font-weight:bold;
-    padding:3px 23px;
+    padding:3px 0;
     text-decoration:none;
     text-shadow:0px -1px 0px #2b665e;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .search__button:hover {
@@ -70,13 +79,16 @@ a:hover {
 
 .location {
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
-    width: 290px;
+    width: 100%;
     background: rgba(0,0,0,0.25);
     padding: 10px 16px;
     max-height: 92%;
     overflow-y: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .location__list {
@@ -115,4 +127,28 @@ a:hover {
 
 .is-active {
     background: rgba(128, 21, 21, 0.83);
+}
+
+
+@media screen and (min-width: 640px) {
+    .search {
+        width: auto;
+        top: 10px;
+        left: 10px;
+    }
+
+    .search__input {
+        width: auto;
+    }
+
+    .search__button {
+        width: auto;
+        padding:3px 23px;
+    }
+
+    .location {
+        top: 0;
+        bottom: auto;
+        width: 290px;
+    }
 }
