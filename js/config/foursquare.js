@@ -1,0 +1,5 @@
+define({
+    url: 'https://api.foursquare.com/v2/',
+    clientId: 'QTQYTWUWKGBI05BJKEYDHYLZWAJP3AUJ1UUUIBVTQMNFP3SO',
+    clientSecret: '2LMVHJSHMDMXQCYIRUV4PLBVKSZALWEC4O4GDJGYRERZBCDD'
+});

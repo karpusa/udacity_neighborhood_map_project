@@ -97,6 +97,7 @@ define([
                 infowindow.open(self.map, marker);
                 self.map.panTo(marker.position);
                 self.currentLocation(ModelLocationData);
+                ModelLocationData.getAdditionInfo();
             });
 
             self.locations.push(ModelLocationData);

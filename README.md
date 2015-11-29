@@ -11,7 +11,9 @@
 * Node.js
 * KnockoutJS
 * RequireJS
+* jQuery
 * Google Map API
+* Foursquare API
 
 ### Resources
 * [Foursquare API](https://developer.foursquare.com/start)

@@ -183,6 +183,18 @@ a:hover {
     background: rgba(128, 21, 21, 0.83);
 }
 
+.link {
+    text-decoration: underline;
+}
+
+.link:hover {
+    text-decoration: none;
+}
+
+.link_black {
+    color: #000;
+}
+
 @media screen and (min-width: 640px) {
     .search {
         width: auto;
