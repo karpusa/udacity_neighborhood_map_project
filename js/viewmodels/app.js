@@ -20,6 +20,30 @@ define([
         });
         self.prevInfoWindow =false;
 
+        self.locationListOpen = ko.observable(true);
+        self.toggleLocationButton = ko.computed( function()
+        {
+            if (self.locationListOpen())
+            {
+                return "Hide List";
+            }
+            else
+            {
+                return "Show List";
+            }
+        });
+        self.locationListClass = ko.computed( function()
+        {
+            if (self.locationListOpen())
+            {
+                return "is-open";
+            }
+            else
+            {
+                return "is-hide";
+            }
+        });
+
         //Initilization
         self.init = function () {
             self.initMap();
@@ -114,6 +138,11 @@ define([
             {
                 self.currentLocation(null);
             }
+        };
+
+        self.toggleLocationList = function()
+        {
+            self.locationListOpen(!self.locationListOpen());
         };
 
         self.init();
