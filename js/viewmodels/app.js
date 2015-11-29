@@ -8,7 +8,7 @@ define([
 
     var AppViewModel = function () {
         var self = this;
-        self.map;
+        self.map = null;
 
         self.ConfigLocation = ConfigLocation;
         self.locations = ko.observableArray([]);
@@ -65,7 +65,7 @@ define([
             self.ConfigLocation.places.forEach(function(data) {
                 self.addLocation(data);
             });
-        }
+        };
 
         //Add marker to map, create info window when click on marker
         self.addLocation = function(data) {
@@ -100,7 +100,7 @@ define([
             });
 
             self.locations.push(ModelLocationData);
-        }
+        };
 
         //Form search
         self.searchSubmit = function()
@@ -115,12 +115,12 @@ define([
                     if ((name.indexOf(word) === -1) && (address.indexOf(word) === -1))
                     {
                         location.visible(false);
-                        location.marker.setMap(null);
+                        location.marker.setVisible(false);
                     }
                     else
                     {
                         location.visible(true);
-                        location.marker.setMap(self.map);
+                        location.marker.setVisible(true);
                     }
                 });
             });
@@ -131,7 +131,7 @@ define([
         {
             if (self.currentLocation() !== location)
             {
-                new google.maps.event.trigger(location.marker, 'click');
+                google.maps.event.trigger(location.marker, 'click');
                 self.map.panTo(location.marker.position);
                 self.currentLocation(location);
             }
@@ -147,7 +147,7 @@ define([
         };
 
         self.init();
-    }
+    };
 
     return AppViewModel;
 });
