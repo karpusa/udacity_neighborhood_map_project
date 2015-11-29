@@ -53,8 +53,8 @@ define([
         //Create Google Map
         self.initMap = function() {
             self.map = new google.maps.Map(document.getElementsByClassName('js-map')[0], {
-                center: new google.maps.LatLng(56.9715833, 24.1090803),
-                zoom: 11,
+                center: new google.maps.LatLng(56.9715833, 24.1490803),
+                zoom: 12,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 disableDefaultUI : true,
             });
@@ -73,7 +73,8 @@ define([
                 marker = new google.maps.Marker({
                     position: latLng,
                     map: self.map,
-                    title: data.name
+                    title: data.name,
+                    icon: 'i/' + data.icon + '.png'
                 }),
                 ModelLocationData = new ModelLocation( {
                     name : data.name,
