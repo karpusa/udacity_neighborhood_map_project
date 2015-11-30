@@ -114,10 +114,6 @@ define([
                 self.map.panTo(location.marker.position);
                 self.currentLocation(location);
             }
-            else
-            {
-                self.currentLocation(null);
-            }
         };
 
         self.toggleLocationList = function()
