@@ -95,6 +95,11 @@ define([
                 self.map.panTo(marker.position);
                 self.currentLocation(ModelLocationData);
                 ModelLocationData.getAdditionInfo();
+
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(function () {
+                    marker.setAnimation(null);
+                }, 750);
             });
 
             self.locations.push(ModelLocationData);
