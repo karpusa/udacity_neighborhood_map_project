@@ -15,6 +15,7 @@ define([
         self.visible = ko.observable(true);
         self.marker = data.marker;
 
+        //Information for google map info window
         self.info = ko.computed( function()
         {
             var content =
@@ -26,6 +27,11 @@ define([
             return content;
         });
 
+        /*
+        * Get ajax request to Foursquare by latitude and longitude, response link to website and phone
+        * Used for in google map info window
+        * getAdditionInfoCache - avoid additional calls for the same request
+        */
         self.getAdditionInfo = function() {
             var fsUrl = configFoursquare.url + 'venues/search?client_id=' + configFoursquare.clientId +
                 '&client_secret=' + configFoursquare.clientSecret + '&v=20151129&ll='+self.latLng.lat+','+self.latLng.lng+'&limit=1',

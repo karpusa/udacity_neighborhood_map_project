@@ -16,7 +16,6 @@ define([
         self.searchQuery = ko.observable('');
         self.searchSubmit = ko.observable('');
         self.prevInfoWindow =false;
-
         self.locationListOpen = ko.observable(true);
         self.toggleLocationButton = ko.computed( function()
         {
@@ -41,13 +40,13 @@ define([
             }
         });
 
-        //Initilization
+        //Initilization APP
         self.init = function () {
             self.initMap();
             self.initLocation();
         };
 
-        //Create Google Map
+        //Initilization Google Map API
         self.initMap = function() {
             self.map = new google.maps.Map(document.getElementsByClassName('js-map')[0], {
                 center: new google.maps.LatLng(56.9715833, 24.1490803),
@@ -57,14 +56,19 @@ define([
             });
         };
 
-        //Add locations to map
+        //Get locations from config and add markers to map
         self.initLocation = function() {
             self.ConfigLocation.places.forEach(function(data) {
                 self.addLocation(data);
             });
         };
 
-        //Add marker to map, create info window when click on marker
+        /**
+         * Add marker to map
+         * Add event on click marker to open info window
+         * Center map on marker
+         * Set animation to marker
+         */
         self.addLocation = function(data) {
             var latLng = {lat: data.lat, lng: data.lng},
                 marker = new google.maps.Marker({
@@ -83,7 +87,8 @@ define([
                 infowindow = new google.maps.InfoWindow({
                     content: ModelLocationData.info()
                 });
-            ModelLocationData.infowindow=infowindow;
+
+            ModelLocationData.infowindow = infowindow;
 
             marker.addListener('click', function() {
                 if(self.prevInfoWindow) {
@@ -105,7 +110,7 @@ define([
             self.locations.push(ModelLocationData);
         };
 
-        //Set current location and move map to marker
+        //Set current location and center map to marker
         self.setCurrentLocation = function(location)
         {
             if (self.currentLocation() !== location)
@@ -116,6 +121,7 @@ define([
             }
         };
 
+        // Hide/Show locations list
         self.toggleLocationList = function()
         {
             self.locationListOpen(!self.locationListOpen());
@@ -145,6 +151,7 @@ define([
             });
         });
 
+        //Run application
         self.init();
     };
 
