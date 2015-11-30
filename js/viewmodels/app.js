@@ -14,10 +14,7 @@ define([
         self.locations = ko.observableArray([]);
         self.currentLocation = ko.observable();
         self.searchQuery = ko.observable('');
-        self.searchWords = ko.computed( function()
-        {
-            return self.searchQuery().toLowerCase().split(' ');
-        });
+        self.searchSubmit = ko.observable('');
         self.prevInfoWindow =false;
 
         self.locationListOpen = ko.observable(true);
@@ -103,30 +100,6 @@ define([
             self.locations.push(ModelLocationData);
         };
 
-        //Form search
-        self.searchSubmit = function()
-        {
-            self.searchWords().forEach(function(word)
-            {
-                self.locations().forEach(function(location)
-                {
-                    var name = location.name.toLowerCase(),
-                        address = location.address.toLowerCase();
-
-                    if ((name.indexOf(word) === -1) && (address.indexOf(word) === -1))
-                    {
-                        location.visible(false);
-                        location.marker.setVisible(false);
-                    }
-                    else
-                    {
-                        location.visible(true);
-                        location.marker.setVisible(true);
-                    }
-                });
-            });
-        };
-
         //Set current location and move map to marker
         self.setCurrentLocation = function(location)
         {
@@ -146,6 +119,30 @@ define([
         {
             self.locationListOpen(!self.locationListOpen());
         };
+
+        //Live search, subscribe event to the observable
+        self.searchSubmit.subscribe(function (value) {
+            var valueSplit = value.toLowerCase().split(' ');
+
+            valueSplit.forEach(function(word) {
+                self.locations().forEach(function(location)
+                {
+                    var name = location.name.toLowerCase(),
+                        address = location.address.toLowerCase();
+
+                    if ((name.indexOf(word) === -1) && (address.indexOf(word) === -1))
+                    {
+                        location.visible(false);
+                        location.marker.setVisible(false);
+                    }
+                    else
+                    {
+                        location.visible(true);
+                        location.marker.setVisible(true);
+                    }
+                });
+            });
+        });
 
         self.init();
     };

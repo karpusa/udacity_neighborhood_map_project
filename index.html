@@ -9,15 +9,11 @@
     <body>
         <div class="map js-map"></div>
 
-        <form class="search" data-bind="submit: searchSubmit">
-            <input data-bind="value: searchQuery" class="search__input" placeholder="Filter favorite places">
-            <button class="search__button" type="submit"><span>Show</span></button>
+        <form class="search">
+            <input data-bind="textInput: searchSubmit" class="search__input" placeholder="Filter favorite places">
         </form>
 
         <div class="location" data-bind="css: locationListClass">
-            <div class="location__button-wrapper">
-                <button class="location__button" data-bind="click: toggleLocationList, text: toggleLocationButton"></button>
-            </div>
             <ul class="location__list" data-bind="foreach: { data: locations, as: 'location' }">
                 <a class="location__link" href="#" data-bind="click: $parent.setCurrentLocation">
                 <li class="location__item" data-bind="css: { 'is-hidden' : !visible(), 'is-active' : $parent.currentLocation() === location}, attr: {latLng : marker.position }">
@@ -26,6 +22,10 @@
                 </li>
                 </a>
             </ul>
+        </div>
+
+        <div class="location__button-wrapper">
+            <button class="location__button" data-bind="click: toggleLocationList, text: toggleLocationButton"></button>
         </div>
 
         <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
