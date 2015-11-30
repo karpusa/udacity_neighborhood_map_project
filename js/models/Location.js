@@ -57,10 +57,7 @@ define([
 
                 return true;
             }).error(function(e){
-                self.getAdditionInfoCache = true;
-
                 $id.html('<p>Api not work</p>');
-
                 return false;
             });
         };
